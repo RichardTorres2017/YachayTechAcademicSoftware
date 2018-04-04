@@ -7,4 +7,4 @@ Programming guidelines:
 4. Interface nomenclature must start with the word "interface" in lower case
 and the usability (ex: interfaceLogin)
 5. Write understandable commits in github.
-6. Reuse code.
+6. Reuse code .

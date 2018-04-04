@@ -10,8 +10,8 @@ describe("Test for login",()=>{
         
 
     });
-    describe("Test for username and password incorrect",()=>{
-        it("The username and password incorrect",()=>{
+    describe("Test for username correct  and password incorrect",()=>{
+        it("The username is correct  and password incorrect",()=>{
         let login = new Login("richard.torres","richard123");
         expect(login.getLogin()).not.toContain("richard.torres rihard123");
         });

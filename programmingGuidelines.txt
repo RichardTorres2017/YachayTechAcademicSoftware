@@ -1,0 +1,10 @@
+Programming guidelines:
+1. Class nomenclature  must start with  the first letter in uppercase 
+(ex: Login, Assistance).
+2. Method nomenclature must use cammel case standard (ex: getLogin,
+ getAssistance).
+3. Make readable and understandable code.
+4. Interface nomenclature must start with the word "interface" in lower case
+and the usability (ex: interfaceLogin)
+5. Write understandable commits in github.
+6. Reuse code.

@@ -5,12 +5,23 @@ This project will attempt to create a module to display information about the st
 ## Getting Started
 
 For this project clone the git and then
+- Have nodejs installed
+- Have ionic installed
 - npm install       to install all dependencies
-- Have ionic installed 
+- npm test          to test the test cases
 
-### Prerequisites
 
-Have ionic installed
+### Programming guidelines
+
+1. Class nomenclature  must start with  the first letter in uppercase 
+(ex: Login, Assistance).
+2. Method nomenclature must use cammel case standard (ex: getLogin,
+ getAssistance).
+3. Make readable and understandable code.
+4. Interface nomenclature must start with the word "interface" in lower case
+and the usability (ex: interfaceLogin)
+5. Write understandable commits in github.
+6. Reuse code.
 
 
 ## Running the tests

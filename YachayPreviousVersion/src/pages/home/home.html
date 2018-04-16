@@ -1,11 +1,21 @@
 <ion-header>
-  <ion-navbar>
-    <img ion-right src="assets/imgs/bananalogo.png" class="navbarLogo" />
+  <ion-toolbar>
+    <!-- <ion-buttons start>
+      <button ion-button icon-only clear>
+        <ion-icon name="bananalogo.png"></ion-icon>
+      </button>
+     <img ion-left src="assets/imgs/bananalogo.png" class="navbarLogo" />
+    </ion-buttons> -->
+    <img ion-left src="assets/imgs/bananalogo.png" style="width: 110px; height: 40px;">
+    <ion-buttons end>
+      <button ion-button ion-right color="light" (click)="logout()">Logout</button>
+    </ion-buttons>
     <ion-title>Home</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <h2>Welcome to Yachay Tech Academic</h2>
-  <button ion-button color="primary" (click)="logout()">Logout</button>
+  <button ion-button color="primary" (click)="subjects()">Subjects</button>
+  <button ion-button color="primary" (click)="schedule()">Schedule</button>
 </ion-content>

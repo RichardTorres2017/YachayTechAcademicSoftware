@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RestProvider {
 
-   apiUrl = 'http://192.168.1.120:8000';
+   apiUrl = 'http://0.0.0.0';
 
 // Inject the HttpCLIent in the constructor
   constructor(public http: HttpClient) {

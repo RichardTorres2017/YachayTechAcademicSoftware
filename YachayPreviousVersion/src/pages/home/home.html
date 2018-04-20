@@ -12,13 +12,13 @@
     <ion-buttons end>
       <button ion-button ion-right color="light" (click)="logout()">Logout</button>
     </ion-buttons>
-    <ion-title>Home</ion-title>
+    <ion-title>HOME</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <h2>Welcome to Yachay Tech Academic</h2>
-  <h2>{{ student.name | uppercase }}</h2>
+  <h2>{{ student.nombresCompletos | uppercase }}</h2>
   <button ion-button color="primary" (click)="subjects()">Subjects</button>
   <button ion-button color="primary" (click)="schedule()">Schedule</button>
 </ion-content>

@@ -7,12 +7,29 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>subjects</ion-title>
+    <ion-title>SUBJECTS</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<!-- <ion-content padding>
+  <h2>Welcome to Yachay Tech Academic</h2>
+  <h2>{{ subjects.description| uppercase }}</h2>
 
+</ion-content> -->
+
+<ion-content padding>
+  
+    <ion-item *ngFor="let c of subjects.semestresAcademicos">
+     
+      <ion-list>
+      <button ion-item *ngFor="let d of c.materias" >
+     
+        <p>{{d.nombreMateria}}</p>
+     
+      </button>
+    </ion-list>
+    </ion-item>
+  
 </ion-content>

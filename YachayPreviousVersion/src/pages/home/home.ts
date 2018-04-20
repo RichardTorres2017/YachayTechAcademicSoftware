@@ -10,13 +10,13 @@ import { StudentService } from '../../providers/student-service/student-service'
 })
 export class HomePage {
 
-  student: any[] = [];
+  student: any[]=[];
 
   constructor(public navCtrl: NavController, public app: App, public studentService : StudentService) {
-
+      this.getStudent();
   }
 
-  ionViewDidLoad(){
+  /*ionViewDidLoad(){
     this.studentService.getStudent().subscribe(
       (data) => {
         this.student = data['1'];
@@ -25,6 +25,14 @@ export class HomePage {
         console.error(error);
       }
     )
+  }*/
+
+  getStudent(){
+    this.studentService.getStudent().then(
+      data => {
+        this.student = data['0'];
+        console.log(this.student);
+      });
   }
 
   subjects(){

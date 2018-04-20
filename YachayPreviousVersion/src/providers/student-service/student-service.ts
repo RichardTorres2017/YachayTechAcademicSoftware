@@ -14,6 +14,14 @@ export class StudentService {
     console.log('Hello StudentService Provider');
   }
   getStudent(){
-    return this.http.get('http://localhost:3000/leaders')
+    return new Promise(resolve =>{
+     this.http.get('http://localhost:3000/datos').subscribe(
+       data => {
+        resolve(data);
+       }, err => {
+        console.log(err);
+       });
+    });
+   // return this.http.get('http://localhost:3000/datos')
   }
 }

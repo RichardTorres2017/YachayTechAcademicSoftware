@@ -22,6 +22,10 @@ export class StudentService {
         console.log(err);
        });
     });
+    
    // return this.http.get('http://localhost:3000/datos')
+  }
+  getSchedule(){
+    return this.http.get("http://localhost:3000/data");
   }
 }

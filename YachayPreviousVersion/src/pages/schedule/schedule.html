@@ -14,5 +14,28 @@
 
 
 <ion-content padding>
-
+  <ion-grid>
+    <ion-item *ngFor="let a of schedule.semestresAcademicos">
+          <ion-item *ngFor="let b of a.materias">
+              <h2>{{b.nombreMateria}}</h2>
+              <ion-row>
+                  <ion-col auto>Dia</ion-col>
+                  <ion-col auto>H. Inicio</ion-col>
+                  <ion-col auto>H. Fin</ion-col>
+                </ion-row>
+            <ion-item *ngFor="let c of b.listadoHorarios">
+            
+  
+              
+              <ion-row>
+              <ion-col>{{c.dia}} </ion-col> 
+              <ion-col>{{c.horaInicio}}</ion-col> 
+              <ion-col>{{c.horaFin}}</ion-col>
+            </ion-row>  
+            
+            
+            </ion-item>
+          </ion-item> 
+    </ion-item>
+  </ion-grid>
 </ion-content>

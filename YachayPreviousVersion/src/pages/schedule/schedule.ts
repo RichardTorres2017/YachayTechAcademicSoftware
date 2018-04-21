@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StudentService } from '../../providers/student-service/student-service';
 
 /**
  * Generated class for the SchedulePage page.
@@ -14,12 +15,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'schedule.html',
 })
 export class SchedulePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  schedule: any[] =[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,public studentService : StudentService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SchedulePage');
+    this.studentService.getSchedule().subscribe(
+      (data) =>{
+        this.schedule = data['0'];
+      },
+      (error) =>{
+        console.error(error);
+      }
+    )
   }
 
 }

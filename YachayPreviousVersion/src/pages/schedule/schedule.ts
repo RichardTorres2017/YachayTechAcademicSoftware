@@ -21,7 +21,7 @@ export class SchedulePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SchedulePage');
-    this.studentService.getSchedule().subscribe(
+    this.studentService.getStudent().then(
       (data) =>{
         this.schedule = data['0'];
       },

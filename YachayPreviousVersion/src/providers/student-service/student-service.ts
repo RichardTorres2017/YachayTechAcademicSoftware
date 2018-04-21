@@ -25,7 +25,7 @@ export class StudentService {
     
    // return this.http.get('http://localhost:3000/datos')
   }
-  getSchedule(){
+ /* getSchedule(){
     return this.http.get("http://localhost:3000/data");
-  }
+  }*/
 }

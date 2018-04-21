@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 //import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NavController, App,IonicPage } from 'ionic-angular';
+import { NavController, App,IonicPage,NavParams } from 'ionic-angular';
 import { StudentService } from '../../providers/student-service/student-service';
 import { HomePage } from '../../pages/home/home';
+
 /**
  * Generated class for the SubjectsPage page.
  *
@@ -15,12 +16,15 @@ import { HomePage } from '../../pages/home/home';
   selector: 'page-subjects',
   templateUrl: 'subjects.html',
 })
+
 export class SubjectsPage {
-
+ //public subjects: Subject[]=[];
   subjects: any[] = [];
-
+ 
   constructor(public navCtrl: NavController, public app: App, public studentService : StudentService) {
-      this.getSubjects();
+     this.getSubjects();
+
+
   }
 
 /*  ionViewDidLoad() {
@@ -58,6 +62,25 @@ this.subjects = data['1'];
         data => {
           this.subjects = data['0'];
           console.log(this.subjects);
+     
         });
       }
+
+     
+      
 }
+
+/*export class Subject{
+  name: string;
+  idSubject: string;
+  period: string;
+  constructor(name: string, idSubject: string, period: string){
+    this.name=name;
+    this.idSubject = idSubject;
+    this.period = period;
+  }
+
+  getName():string{
+    return this.name;
+  }
+}*/

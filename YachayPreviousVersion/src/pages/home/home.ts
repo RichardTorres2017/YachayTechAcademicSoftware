@@ -3,6 +3,8 @@ import { NavController, App } from 'ionic-angular';
 import { SubjectsPage } from '../subjects/subjects';
 import { SchedulePage } from '../schedule/schedule';
 import { StudentService } from '../../providers/student-service/student-service';
+import { Login } from '../login/login';
+
 
 @Component({
   selector: 'page-home',
@@ -45,8 +47,9 @@ export class HomePage {
 
   logout(){
     //Api Token Logout
-    const root = this.app.getRootNav();
-    root.popToRoot();
+    // const root = this.app.getRootNav();
+    // root.popToRoot();
+    this.navCtrl.setRoot(Login);
   }
 
 }

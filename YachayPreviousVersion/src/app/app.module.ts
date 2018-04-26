@@ -11,6 +11,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SubjectsPage } from '../pages/subjects/subjects';
+import { SubjectPage } from '../pages/subject/subject';
 import { SchedulePage } from '../pages/schedule/schedule';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -30,7 +31,8 @@ import { StudentService } from '../providers/student-service/student-service'
     HomePage,
     TabsPage,
     SubjectsPage,
-    SchedulePage
+    SchedulePage,
+    SubjectPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { StudentService } from '../providers/student-service/student-service'
     HomePage,
     TabsPage,
     SubjectsPage,
-    SchedulePage
+    SchedulePage,
+    SubjectPage
   ],
   providers: [
     StatusBar,

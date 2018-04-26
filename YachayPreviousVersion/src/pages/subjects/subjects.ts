@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, App,IonicPage,NavParams } from 'ionic-angular';
 import { StudentService } from '../../providers/student-service/student-service';
 import { HomePage } from '../../pages/home/home';
-
+import { SubjectPage } from '../../pages/subject/subject';
 /**
  * Generated class for the SubjectsPage page.
  *
@@ -66,7 +66,9 @@ this.subjects = data['1'];
         });
       }
 
-     
+      subject(){
+        this.navCtrl.push(SubjectPage);
+      }
       
 }
 

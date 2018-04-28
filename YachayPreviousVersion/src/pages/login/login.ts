@@ -15,18 +15,9 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class Login {
-  public onLoginForm: FormGroup;
-  public onRegisterForm: FormGroup;
+  private onLoginForm: FormGroup;
   auth: string = "login";
   constructor(public navCtrl: NavController, public navParams: NavParams, private _fb: FormBuilder,public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Login');
-  }
-
-
-  ngOnInit() {
     this.onLoginForm = this._fb.group({
       email: ['', Validators.compose([
         Validators.required
@@ -35,23 +26,18 @@ export class Login {
         Validators.required
       ])]
     });
-
-    this.onRegisterForm = this._fb.group({
-      fullName: ['', Validators.compose([
-        Validators.required
-      ])],
-      email: ['', Validators.compose([
-        Validators.required
-      ])],
-      password: ['', Validators.compose([
-        Validators.required
-      ])]
-    });
+  }
+  // logForm(){
+  //   console.log(this.onLoginForm.value)
+  // }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad Login');
   }
 
   login(){
     //Api connections
     this.navCtrl.setRoot(HomePage);
+    console.log(this.onLoginForm.value);
     }
 
 }

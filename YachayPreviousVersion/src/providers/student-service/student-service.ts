@@ -2,6 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import {LoadingController } from 'ionic-angular';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+
+import {Headers, Http, HttpModule} from '@angular/http';
+import {HttpHeaders} from '@angular/common/http';
+
 /*
   Generated class for the StudentServiceProvider provider.
 
@@ -11,13 +19,16 @@ import {LoadingController } from 'ionic-angular';
 @Injectable()
 export class StudentService {
   loading: any;
-  constructor(public http: HttpClient,public alertCtrl: AlertController,private loadingController: LoadingController) {
+  token:string;
+  AccessToken: string = "";
+  constructor(public http: Http,public alertCtrl: AlertController,private loadingController: LoadingController) {
     console.log('Hello StudentService Provider');
-    
-    
-  
-  }
- 
+    }
+
+    private TokenAPI = 'http://172.20.0.87:8081/api/v1/token/generar-token';
+    login(Username: string, Password:string): Observable<token>{
+      
+    }
 
   getStudent(){
     this.loading  = this.loadingController.create({
@@ -25,7 +36,7 @@ export class StudentService {
   });
     this.loading.present();
     return new Promise(resolve =>{
-     
+
      this.http.get('http://localhost:3000/datos').subscribe(
        data => {
         resolve(data);
@@ -33,7 +44,7 @@ export class StudentService {
        }, err => {
         console.log(err);
         if(!err.ok){
-          
+
           this.loading.dismiss();
           this.showAlert();
         }
@@ -51,7 +62,7 @@ export class StudentService {
     alert.present();
   }
 
-  
+
  /* getSchedule(){
     return this.http.get("http://localhost:3000/data");
   }*/

@@ -4,6 +4,7 @@ import { SubjectsPage } from '../subjects/subjects';
 import { SchedulePage } from '../schedule/schedule';
 import { StudentService } from '../../providers/student-service/student-service';
 import { Login } from '../login/login';
+import {NavParams} from "ionic-angular";
 
 
 @Component({
@@ -13,11 +14,17 @@ import { Login } from '../login/login';
 export class HomePage {
 
   student: any[]=[];
-
-  constructor(public navCtrl: NavController, public app: App, public studentService : StudentService) {
+  passToken:string;
+  constructor(public navCtrl: NavController, public app: App, public studentService : StudentService,public navParams:NavParams) {
       this.getStudent();
+    this.passToken = this.navParams.get('token');
+    console.log(this.passToken);
   }
 
+
+ /* ionViewDidLoad(){
+    console.log(this.navParams.get('token'));
+  }*/
   /*ionViewDidLoad(){
     this.studentService.getStudent().subscribe(
       (data) => {

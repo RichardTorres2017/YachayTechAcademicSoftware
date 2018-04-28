@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-
+import {Login} from '../../pages/login/login';
 //import {TokenParams} from './TokenParams';
 import {Headers, Http, HttpModule} from '@angular/http';
 import {HttpHeaders} from '@angular/common/http';
@@ -17,6 +17,8 @@ import {HttpHeaders} from '@angular/common/http';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+
+let apiURL = 'http://172.20.0.87:8081/api/v1/token/generar-token';
 @Injectable()
 export class StudentService {
   loading: any;

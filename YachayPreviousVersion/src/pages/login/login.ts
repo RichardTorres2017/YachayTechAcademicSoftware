@@ -36,10 +36,15 @@ export class Login {
 
   login(){
     this.auth_service.obtainToken(this.onLoginForm.value.username,this.onLoginForm.value.password).then((result) =>{
+    
     this.accessToken = result;
     console.log(this.accessToken);
     if(this.accessToken){
-      this.navCtrl.push(HomePage);
+      let data ={
+        url: "jshk",
+        token: this.accessToken.token
+      }
+      this.navCtrl.push(HomePage,data);
   }
     }, (err) => {
       this.presentToast("Give valid username and password");

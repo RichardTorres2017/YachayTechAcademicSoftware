@@ -15,10 +15,13 @@ export class HomePage {
 
   student: any[]=[];
   passToken:string;
+  personaUrl:string;
   constructor(public navCtrl: NavController, public app: App, public studentService : StudentService,public navParams:NavParams) {
       this.getStudent();
     this.passToken = this.navParams.get('token');
+    this.personaUrl = this.navParams.get('url');
     console.log(this.passToken);
+    console.log(this.personaUrl);
   }
 
 

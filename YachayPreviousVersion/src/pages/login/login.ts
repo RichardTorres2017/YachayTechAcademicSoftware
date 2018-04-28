@@ -36,15 +36,16 @@ export class Login {
 
   login(){
     this.auth_service.obtainToken(this.onLoginForm.value.username,this.onLoginForm.value.password).then((result) =>{
-    
+    let splitted = this.onLoginForm.value.username.split(".",2);
+    let urlName = splitted[0]+"/"+splitted[1];
     this.accessToken = result;
     console.log(this.accessToken);
     if(this.accessToken){
       let data ={
-        url: "jshk",
+        url: urlName,
         token: this.accessToken.token
       }
-      this.navCtrl.push(HomePage,data);
+      this.navCtrl.setRoot(HomePage,data);
   }
     }, (err) => {
       this.presentToast("Give valid username and password");

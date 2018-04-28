@@ -19,7 +19,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
 
 import { StudentService } from '../providers/student-service/student-service'
-
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import {HttpModule} from '@angular/http';
 @NgModule({
   declarations: [
     MyApp,
@@ -37,6 +38,7 @@ import { StudentService } from '../providers/student-service/student-service'
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -57,7 +59,8 @@ import { StudentService } from '../providers/student-service/student-service'
     StatusBar,
     StudentService,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthServiceProvider
   ]
 })
 export class AppModule {}

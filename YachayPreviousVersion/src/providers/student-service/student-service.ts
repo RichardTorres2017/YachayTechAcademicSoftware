@@ -6,16 +6,11 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-<<<<<<< HEAD
 
-import {Headers, Http, HttpModule} from '@angular/http';
-import {HttpHeaders} from '@angular/common/http';
-
-=======
 //import {TokenParams} from './TokenParams';
 import {Headers, Http, HttpModule} from '@angular/http';
 import {HttpHeaders} from '@angular/common/http';
->>>>>>> dbbe14063a62ce053c5e35eacc40fe52201f565c
+
 /*
   Generated class for the StudentServiceProvider provider.
 

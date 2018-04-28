@@ -17,7 +17,7 @@ let apiURL = 'http://172.20.0.87:8081/api/v1/token/generar-token';
 //AccessToken: string = "";
 @Injectable()
 export class AuthServiceProvider {
- 
+
   constructor(public http: Http) {
     console.log('Hello AuthServiceProvider Provider');
   }/*
@@ -30,11 +30,15 @@ export class AuthServiceProvider {
       .map(res => res.json());
   }*/
 
-  postData(credentials) {
+  obtainToken(Username:string,Password:string) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
 
-      this.http.post(apiURL, JSON.stringify(credentials), {headers: headers})
+      // this.http.post(apiURL, JSON.stringify(credentials), {headers: headers})
+      this.http.post(apiURL, {
+      username:Username,
+      password: Password
+    }, {headers: headers})
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {
@@ -43,5 +47,8 @@ export class AuthServiceProvider {
     });
 
   }
+
+
+
 
 }

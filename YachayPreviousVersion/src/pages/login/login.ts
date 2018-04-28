@@ -1,7 +1,6 @@
-import {Component, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {FormGroup, Validators, FormBuilder} from '@angular/forms';
 import {NavController, IonicPage, AlertController, ToastController, MenuController, NavParams} from "ionic-angular";
-
 import { HomePage } from '../home/home';
 //import {TokenParams} from '../../providers/auth-service/TokenParams';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
@@ -17,13 +16,13 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
   templateUrl: 'login.html',
 })
 export class Login {
-  private onLoginForm: FormGroup;
+  public onLoginForm: FormGroup;
   auth: string = "login";
   //tokenParam : TokenParams;
-  responseData:any;
+  accessToken:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private _fb: FormBuilder,public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController, public auth_service:AuthServiceProvider) {
     this.onLoginForm = this._fb.group({
-      email: ['', Validators.compose([
+      username: ['', Validators.compose([
         Validators.required
       ])],
       password: ['', Validators.compose([
@@ -31,30 +30,29 @@ export class Login {
       ])]
     });
   }
-  // logForm(){
-  //   console.log(this.onLoginForm.value)
-  // }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Login');
   }
 
   login(){
-    //Api connections
-    this.auth_service.postData(this.onLoginForm.value).then((result)=>{
-      this.responseData =result;
-      console.log(this.responseData);
+    this.auth_service.obtainToken(this.onLoginForm.value.username,this.onLoginForm.value.password).then((result) =>{
+    this.accessToken = result;
+    console.log(this.accessToken);
+    if(this.accessToken){
+      this.navCtrl.push(HomePage);
+  }
+    }, (err) => {
+      this.presentToast("Give valid username and password");
     });
-   // this.navCtrl.setRoot(HomePage);
-   // console.log(this.onLoginForm.value);
-     /* this.auth_service.login(this.onLoginForm.value.email,this.onLoginForm.value.password)
-      .subscribe(
-          data =>{
-            this.tokenParam = data;
-            this.auth_service.AccessToken = this.tokenParam.token;
-            console.log(this.auth_service.AccessToken);
-          }
-      );*/
+  }
 
-    }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
+}
 
 }

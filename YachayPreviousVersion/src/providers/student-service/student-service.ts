@@ -21,14 +21,15 @@ export class StudentService {
   loading: any;
   token:string;
   AccessToken: string = "";
-  constructor(public http: Http,public alertCtrl: AlertController,private loadingController: LoadingController) {
+
+  constructor(public http: HttpClient,public alertCtrl: AlertController,private loadingController: LoadingController) {
     console.log('Hello StudentService Provider');
     }
 
-    private TokenAPI = 'http://172.20.0.87:8081/api/v1/token/generar-token';
-    login(Username: string, Password:string): Observable<token>{
-      
-    }
+    // private TokenAPI = 'http://172.20.0.87:8081/api/v1/token/generar-token';
+    // login(Username: string, Password:string): Observable<Token>{
+    //     ret
+    // }
 
   getStudent(){
     this.loading  = this.loadingController.create({

@@ -6,10 +6,16 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+<<<<<<< HEAD
 
 import {Headers, Http, HttpModule} from '@angular/http';
 import {HttpHeaders} from '@angular/common/http';
 
+=======
+//import {TokenParams} from './TokenParams';
+import {Headers, Http, HttpModule} from '@angular/http';
+import {HttpHeaders} from '@angular/common/http';
+>>>>>>> dbbe14063a62ce053c5e35eacc40fe52201f565c
 /*
   Generated class for the StudentServiceProvider provider.
 
@@ -30,6 +36,17 @@ export class StudentService {
     // login(Username: string, Password:string): Observable<Token>{
     //     ret
     // }
+
+  /*private TokenAPI = 'http://172.20.0.87:8081/api/v1/token/generar-token';
+  login(Username: string, Password: string):Observable<TokenParams>{
+
+    var headersForTokenAPI = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+    var data = "grant_type=password&username="+Username+"&password="+Password;
+    return this.http.post(this.TokenAPI,data,{headers: headersForTokenAPI})
+      .map(res => res.json());
+  }*/
+
+
 
   getStudent(){
     this.loading  = this.loadingController.create({

@@ -22,7 +22,7 @@ export class SubjectsPage {
   subjects: any[] = [];
  
   constructor(public navCtrl: NavController, public app: App, public studentService : StudentService) {
-     this.getSubjects();
+     //this.getSubjects();
 
 
   }
@@ -57,14 +57,14 @@ this.subjects = data['1'];
         this.student = data['1'];
         console.log(this.student);
       });*/
-     getSubjects(){
+     /*getSubjects(){
       this.studentService.getStudent().then(
         data => {
           this.subjects = data['0'];
           console.log(this.subjects);
      
         });
-      }
+     }*/
 
       subject(){
         this.navCtrl.push(SubjectPage);

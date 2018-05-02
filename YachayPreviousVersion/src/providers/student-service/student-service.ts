@@ -18,14 +18,16 @@ import {HttpHeaders} from '@angular/common/http';
   and Angular DI.
 */
 
-let apiURL = 'http://172.20.0.87:8081/api/v1/token/generar-token';
+
 @Injectable()
 export class StudentService {
   loading: any;
   token:string;
-  AccessToken: string = "";
+  AccessToken: string = "Bearer ";
+  studentURL : string = "";
+  apiURL : string = "http://172.20.0.87:8082/api/v1/personas/personaUsuario/";
 
-  constructor(public http: HttpClient,public alertCtrl: AlertController,private loadingController: LoadingController) {
+  constructor(public http: Http,public alertCtrl: AlertController,private loadingController: LoadingController) {
     console.log('Hello StudentService Provider');
     }
 
@@ -43,8 +45,29 @@ export class StudentService {
       .map(res => res.json());
   }*/
 
+  getStudent(token : string, shortUrl : string) {
+    this.studentURL = this.apiURL+shortUrl;
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      this.AccessToken= this.AccessToken+token;
+      //console.log(this.AccessToken);
+      /*headers.append('Access-Control-Allow-Origin', '*');
+      headers.append('Access-Control-Allow-Methods','GET');
+      headers.append('Content-Type','application/json; charset=UTF-8');
+      headers.append('Accept','application/json');*/
+      headers.append('Authorization', this.AccessToken);
+      //console.log(headers);
+      //console.log(this.studentURL);
+      this.http.get(this.studentURL, {headers: headers})
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
 
-
+  }
+/*
   getStudent(){
     this.loading  = this.loadingController.create({
       content: 'Cargando asignaturas, espere...'
@@ -65,9 +88,9 @@ export class StudentService {
         }
        });
     });
-
+  
    // return this.http.get('http://localhost:3000/datos')
-  }
+  }*/
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'No Internet!',

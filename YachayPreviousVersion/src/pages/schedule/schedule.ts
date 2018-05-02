@@ -19,7 +19,7 @@ export class SchedulePage {
   schedule: any[] =[];
   schedule2: any[] = [];
   constructor(public navCtrl: NavController, public navParams: NavParams,public studentService : StudentService) {
-    this.getSchedule();
+    //this.getSchedule();
   }
 
   ionViewDidLoad() {
@@ -33,6 +33,7 @@ export class SchedulePage {
       }
     )*/
   }
+  /*
   getSchedule(){
     this.studentService.getStudent().then(
       (data) =>{

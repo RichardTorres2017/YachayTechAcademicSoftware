@@ -13,15 +13,13 @@ import {NavParams} from "ionic-angular";
 })
 export class HomePage {
 
-  student: any[]=[];
-  passToken:string;
-  personaUrl:string;
+  student: any;
+  passToken:string="";
+  personaUrl:string="";
   constructor(public navCtrl: NavController, public app: App, public studentService : StudentService,public navParams:NavParams) {
+      this.passToken = this.navParams.get('token');
+      this.personaUrl = this.navParams.get('url');
       this.getStudent();
-    this.passToken = this.navParams.get('token');
-    this.personaUrl = this.navParams.get('url');
-    console.log(this.passToken);
-    console.log(this.personaUrl);
   }
 
 
@@ -40,11 +38,13 @@ export class HomePage {
   }*/
 
   getStudent(){
-    this.studentService.getStudent().then(
-      data => {
-        this.student = data['0'];
+    this.studentService.getStudent(this.passToken,this.personaUrl).then(
+      (data) => {
+        this.student = data;
         console.log(this.student);
-      });
+      }/*,(err)=>{
+          console.log("no hubo como");
+      }*/);
   }
 
   subjects(){

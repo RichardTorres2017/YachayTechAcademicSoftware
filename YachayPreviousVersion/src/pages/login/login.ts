@@ -39,6 +39,7 @@ export class Login {
     let splitted = this.onLoginForm.value.username.split(".",2);
     let urlName = splitted[0]+"/"+splitted[1];
     this.accessToken = result;
+    console.log(this.accessToken);
     if(this.accessToken){
       let data ={
         url: urlName,

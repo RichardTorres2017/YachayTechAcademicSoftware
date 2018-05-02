@@ -5,6 +5,7 @@ import { SchedulePage } from '../schedule/schedule';
 import { StudentService } from '../../providers/student-service/student-service';
 import { Login } from '../login/login';
 import {NavParams} from "ionic-angular";
+import { ToastController } from 'ionic-angular';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class HomePage {
   student: any;
   passToken:string="";
   personaUrl:string="";
-  constructor(public navCtrl: NavController, public app: App, public studentService : StudentService,public navParams:NavParams) {
+  constructor(public toastCtrl: ToastController,public navCtrl: NavController, public app: App, public studentService : StudentService,public navParams:NavParams) {
       this.passToken = this.navParams.get('token');
       this.personaUrl = this.navParams.get('url');
       this.getStudent();
@@ -42,9 +43,9 @@ export class HomePage {
       (data) => {
         this.student = data;
         console.log(this.student);
-      }/*,(err)=>{
-          console.log("no hubo como");
-      }*/);
+      },(err)=>{
+          this.presentToast("no hubo como");
+      });
   }
 
   subjects(){
@@ -61,5 +62,13 @@ export class HomePage {
     // root.popToRoot();
     this.navCtrl.setRoot(Login);
   }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
+}
 
 }

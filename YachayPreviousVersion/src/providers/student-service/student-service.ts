@@ -25,7 +25,7 @@ export class StudentService {
   token:string;
   AccessToken: string = "Bearer ";
   studentURL : string = "";
-  apiURL : string = "http://172.20.0.87:8082/api/v1/personas/personaUsuario/";
+  apiURL : string = "http://172.20.0.87:8083/api/v1/personas/personaUsuario/";
 
   constructor(public http: Http,public alertCtrl: AlertController,private loadingController: LoadingController) {
     console.log('Hello StudentService Provider');

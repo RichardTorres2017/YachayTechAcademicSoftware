@@ -72,7 +72,7 @@ export class StudentService {
     this.loading.present();*/
     return new Promise(resolve =>{
 
-     this.http.get('http://localhost:4000/datos').subscribe(
+     this.http.get('http://my-json-server.typicode.com/RichardTorres2017/jsonfile/datos').subscribe(
        data => {
         resolve(data.json());
         //this.loading.dismiss()
@@ -96,7 +96,7 @@ export class StudentService {
     this.loading.present();
     return new Promise(resolve =>{
 
-     this.http.get('http://localhost:3000/data').subscribe(
+     this.http.get('http://my-json-server.typicode.com/RichardTorres2017/json2/data').subscribe(
        data => {
         resolve(data.json());
         this.loading.dismiss()

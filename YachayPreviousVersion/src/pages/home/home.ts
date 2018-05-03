@@ -27,26 +27,27 @@ export class HomePage {
  /* ionViewDidLoad(){
     console.log(this.navParams.get('token'));
   }*/
-  /*ionViewDidLoad(){
-    this.studentService.getStudent().subscribe(
+  getStudent(){
+    this.studentService.getStudent(this.passToken,this.personaUrl).then(
       (data) => {
-        this.student = data['1'];
+        this.student = data['codigoPersonaId'];
       },
       (error) =>{
         console.error(error);
       }
     )
-  }*/
-
+  }
+/*
   getStudent(){
     this.studentService.getStudent(this.passToken,this.personaUrl).then(
       (data) => {
-        this.student = data;
+       // this.student = Array.of(data)[0][0].codigoPersonaId;
+       this.student =data[0][0].codigoPersonaId;
         console.log(this.student);
       },(err)=>{
           this.presentToast("no hubo como");
       });
-  }
+  }*/
 
   subjects(){
     this.navCtrl.push(SubjectsPage);

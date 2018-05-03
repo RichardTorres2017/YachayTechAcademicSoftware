@@ -51,10 +51,7 @@ export class StudentService {
       let headers = new Headers();
       this.AccessToken= this.AccessToken+token;
       //console.log(this.AccessToken);
-      /*headers.append('Access-Control-Allow-Origin', '*');
-      headers.append('Access-Control-Allow-Methods','GET');
-      headers.append('Content-Type','application/json; charset=UTF-8');
-      headers.append('Accept','application/json');*/
+     
       headers.append('Authorization', this.AccessToken);
       //console.log(headers);
       //console.log(this.studentURL);
@@ -67,8 +64,8 @@ export class StudentService {
     });
 
   }
-/*
-  getStudent(){
+
+  /*getStudent(){
     this.loading  = this.loadingController.create({
       content: 'Cargando asignaturas, espere...'
   });
@@ -77,7 +74,7 @@ export class StudentService {
 
      this.http.get('http://localhost:3000/datos').subscribe(
        data => {
-        resolve(data);
+        resolve(data.json());
         this.loading.dismiss()
        }, err => {
         console.log(err);

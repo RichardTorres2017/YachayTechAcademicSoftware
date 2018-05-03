@@ -22,11 +22,15 @@
   <button ion-button color="primary" (click)="subjects()">Subjects</button>
   <button ion-button color="primary" (click)="schedule()">Schedule</button> -->
   <ion-list>
+      <ion-item>
+    <h2>{{student}}</h2> 
+      </ion-item>
     <ion-item>
       <ion-thumbnail item-start>
         <img src="../../assets/icon/subjects.png">
       </ion-thumbnail>
-      <h2>Subjects</h2>
+      <h2>{{student}}</h2>
+      
       <p>View your subjects</p>
       <button ion-button clear item-end color="primary" (click)="subjects()" >Go</button>
     </ion-item>

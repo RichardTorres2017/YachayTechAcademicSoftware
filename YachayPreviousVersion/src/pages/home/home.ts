@@ -14,30 +14,43 @@ import { ToastController } from 'ionic-angular';
 })
 export class HomePage {
 
-  student: any;
+  studentId: any;
   passToken:string="";
   personaUrl:string="";
+  student:any;
   constructor(public toastCtrl: ToastController,public navCtrl: NavController, public app: App, public studentService : StudentService,public navParams:NavParams) {
       this.passToken = this.navParams.get('token');
       this.personaUrl = this.navParams.get('url');
       this.getStudent();
+      this.getInfo(this.studentId);
   }
 
 
  /* ionViewDidLoad(){
     console.log(this.navParams.get('token'));
   }*/
-  /*ionViewDidLoad(){
-    this.studentService.getStudent().subscribe(
+  getStudent(){
+    this.studentService.getStudent().then(
       (data) => {
-        this.student = data['1'];
+        this.studentId = data['codigoPersonaId'];
       },
       (error) =>{
         console.error(error);
       }
     )
-  }*/
-
+  }
+  getInfo(studentId:string){
+    this.studentService.getInfo(studentId).then(
+      (data) => {
+        this.student = data;
+      },
+      (error) =>{
+        console.error(error);
+      }
+    )
+  }
+  
+  /*
   getStudent(){
     this.studentService.getStudent(this.passToken,this.personaUrl).then(
       (data) => {
@@ -46,10 +59,10 @@ export class HomePage {
       },(err)=>{
           this.presentToast("no hubo como");
       });
-  }
+  }*/
 
   subjects(){
-    this.navCtrl.push(SubjectsPage);
+    this.navCtrl.push(SubjectsPage,this.student);
   }
 
   schedule(){

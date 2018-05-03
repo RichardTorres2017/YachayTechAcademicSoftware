@@ -26,7 +26,7 @@ export class Login {
         Validators.required
       ])],
       password: ['', Validators.compose([
-        Validators.required
+        Validators.required,
       ])]
     });
   }

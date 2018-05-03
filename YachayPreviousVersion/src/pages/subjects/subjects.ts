@@ -19,11 +19,11 @@ import { SubjectPage } from '../../pages/subject/subject';
 
 export class SubjectsPage {
  //public subjects: Subject[]=[];
-  subjects: any[] = [];
+  subjects: any;
  
-  constructor(public navCtrl: NavController, public app: App, public studentService : StudentService) {
-     //this.getSubjects();
-
+  constructor(public navCtrl: NavController, public app: App, public studentService : StudentService,public navParams:NavParams) {
+    this.subjects = this.navParams.get('semestresAcademicos');
+    console.log(this.subjects);
 
   }
 

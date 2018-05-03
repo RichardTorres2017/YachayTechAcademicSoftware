@@ -44,20 +44,17 @@ export class StudentService {
     return this.http.post(this.TokenAPI,data,{headers: headersForTokenAPI})
       .map(res => res.json());
   }*/
-
+  /*
   getStudent(token : string, shortUrl : string) {
     this.studentURL = this.apiURL+shortUrl;
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.AccessToken= this.AccessToken+token;
       //console.log(this.AccessToken);
-      /*headers.append('Access-Control-Allow-Origin', '*');
-      headers.append('Access-Control-Allow-Methods','GET');
-      headers.append('Content-Type','application/json; charset=UTF-8');
-      headers.append('Accept','application/json');*/
       headers.append('Authorization', this.AccessToken);
       //console.log(headers);
       //console.log(this.studentURL);
+      console.log(this.http.get(this.studentURL),{headers:headers});
       this.http.get(this.studentURL, {headers: headers})
         .subscribe(res => {
           resolve(res.json());
@@ -66,18 +63,42 @@ export class StudentService {
         });
     });
 
-  }
-/*
+  }*/
+
   getStudent(){
+    /*this.loading  = this.loadingController.create({
+      content: 'Cargando asignaturas, espere...'
+  });
+    this.loading.present();*/
+    return new Promise(resolve =>{
+
+     this.http.get('http://localhost:4000/datos').subscribe(
+       data => {
+        resolve(data.json());
+        //this.loading.dismiss()
+       }, err => {
+        console.log(err);
+        if(!err.ok){
+
+          //this.loading.dismiss();
+          this.showAlert();
+        }
+       });
+    });
+  
+   // return this.http.get('http://localhost:3000/datos')
+  }
+
+  getInfo(studentId:string){
     this.loading  = this.loadingController.create({
       content: 'Cargando asignaturas, espere...'
   });
     this.loading.present();
     return new Promise(resolve =>{
 
-     this.http.get('http://localhost:3000/datos').subscribe(
+     this.http.get('http://localhost:3000/data').subscribe(
        data => {
-        resolve(data);
+        resolve(data.json());
         this.loading.dismiss()
        }, err => {
         console.log(err);
@@ -88,9 +109,8 @@ export class StudentService {
         }
        });
     });
-  
-   // return this.http.get('http://localhost:3000/datos')
-  }*/
+  }
+
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'No Internet!',

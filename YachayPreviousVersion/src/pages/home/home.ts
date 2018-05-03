@@ -32,7 +32,7 @@ export class HomePage {
   getStudent(){
     this.studentService.getStudent().then(
       (data) => {
-        this.studentId = data['codigoPersonaId'];
+        this.studentId = data['data'];
       },
       (error) =>{
         console.error(error);

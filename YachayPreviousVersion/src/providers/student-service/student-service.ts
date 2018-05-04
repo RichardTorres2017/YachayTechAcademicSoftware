@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
-import {LoadingController } from 'ionic-angular';
+import {LoadingController, Platform} from 'ionic-angular';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
@@ -10,7 +10,7 @@ import {Login} from '../../pages/login/login';
 //import {TokenParams} from './TokenParams';
 import {Headers, Http, HttpModule} from '@angular/http';
 import {HttpHeaders} from '@angular/common/http';
-
+import { Network } from '@ionic-native/network'
 /*
   Generated class for the StudentServiceProvider provider.
 
@@ -27,7 +27,7 @@ export class StudentService {
   studentURL : string = "";
   apiURL : string = "http://172.20.0.87:8082/api/v1/personas/personaUsuario/";
 
-  constructor(public http: Http,public alertCtrl: AlertController,private loadingController: LoadingController) {
+  constructor(public http: Http,public alertCtrl: AlertController,private loadingController: LoadingController, public platform: Platform,public network: Network) {
     console.log('Hello StudentService Provider');
     }
 

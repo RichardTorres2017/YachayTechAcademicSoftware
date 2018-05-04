@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StudentService } from '../providers/student-service/student-service'
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import {HttpModule} from '@angular/http';
+import { Network } from '@ionic-native/network';
 @NgModule({
   declarations: [
     MyApp,
@@ -60,7 +61,8 @@ import {HttpModule} from '@angular/http';
     StudentService,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    AuthServiceProvider,
+    Network
   ]
 })
 export class AppModule {}

@@ -35,8 +35,8 @@ export class Login {
   }
 
   login(){
-    this.navCtrl.setRoot(HomePage);
-  /*  this.auth_service.obtainToken(this.onLoginForm.value.username,this.onLoginForm.value.password).then((result) =>{
+     this.navCtrl.setRoot(HomePage);
+   /*this.auth_service.obtainToken(this.onLoginForm.value.username,this.onLoginForm.value.password).then((result) =>{
     let splitted = this.onLoginForm.value.username.split(".",2);
     let urlName = splitted[0]+"/"+splitted[1];
     this.accessToken = result;
@@ -49,8 +49,8 @@ export class Login {
   }
     }, (err) => {
       this.presentToast("Give valid username and password");
-    });*/
-
+    });
+*/
   }
 
 

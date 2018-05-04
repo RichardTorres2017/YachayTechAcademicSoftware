@@ -7,13 +7,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>schedule</ion-title>
+    <ion-title>SCHEDULE</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<!-- <ion-content padding>
   <ion-grid>
     <ion-item *ngFor="let a of schedule.semestresAcademicos">
           <ion-item *ngFor="let b of a.materias">
@@ -39,4 +39,25 @@
     </ion-item>
   
   </ion-grid>
+</ion-content> -->
+
+
+<ion-content padding>
+  <ion-item *ngFor="let a of schedule" class="wrapping-list">
+    <ion-list>
+      <ion-item *ngFor= "let b of a.materias" class="wrapping-list" >
+        <ion-list-header color="secondary" >{{b.nombreMateria}}</ion-list-header>       
+        <ion-item *ngFor = "let c of b.listadoHorarios" class="wrapping-list">
+            <ion-avatar item-start>
+                <img src="assets/icon/schedule.png">
+            </ion-avatar>
+          <h3>{{c.dia}}</h3>
+          <p>Hora Inicio: {{c.horaInicio}} </p>
+          <p>Hora Fin: {{c.horaFin}} </p>
+          <p>Lugar: {{c.lugar}} </p>
+          <p>Aula: {{c.aula}} </p>
+        </ion-item>
+      </ion-item>
+    </ion-list>
+  </ion-item>
 </ion-content>

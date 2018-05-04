@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, App, NavParams } from 'ionic-angular';
 import { StudentService } from '../../providers/student-service/student-service';
 
 
@@ -16,10 +16,12 @@ import { StudentService } from '../../providers/student-service/student-service'
   templateUrl: 'schedule.html',
 })
 export class SchedulePage {
-  schedule: any[] =[];
-  schedule2: any[] = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public studentService : StudentService) {
+  // schedule: any[] =[];
+ // schedule2: any[] = [];
+ schedule: any;
+  constructor(public navCtrl: NavController, public app: App, public studentService : StudentService,public navParams:NavParams) {
     //this.getSchedule();
+    this.schedule = this.navParams.get('semestresAcademicos');
   }
 
   ionViewDidLoad() {

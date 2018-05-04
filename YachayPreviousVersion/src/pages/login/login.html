@@ -38,7 +38,7 @@
 							<ion-icon name="lock" item-start class="text-white"></ion-icon>
 							Password
 						</ion-label>
-						<ion-input type="text" formControlName="password"></ion-input>
+						<ion-input type="password" formControlName="password"></ion-input>
 					</ion-item>
 					<p ion-text color="danger" class="text-12x has-error" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">This field is required</p>
 				</form>

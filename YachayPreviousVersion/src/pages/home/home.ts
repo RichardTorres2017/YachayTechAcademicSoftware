@@ -66,7 +66,7 @@ export class HomePage {
   }
 
   schedule(){
-    this.navCtrl.push(SchedulePage);
+    this.navCtrl.push(SchedulePage,this.student);
   }
 
   logout(){

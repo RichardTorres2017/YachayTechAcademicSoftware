@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import {LoadingController } from 'ionic-angular';
@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 import {Login} from '../../pages/login/login';
 //import {TokenParams} from './TokenParams';
 import {Headers, Http, HttpModule} from '@angular/http';
-import {HttpHeaders} from '@angular/common/http';
+//import {HttpHeaders} from '@angular/common/http';
 
 /*
   Generated class for the StudentServiceProvider provider.

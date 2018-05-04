@@ -5,8 +5,8 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {Headers, Http, HttpModule} from '@angular/http';
-import {HttpHeaders} from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
+//import {HttpHeaders} from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { Network } from '@ionic-native/network'
 /*
   Generated class for the AuthServiceProvider provider.
